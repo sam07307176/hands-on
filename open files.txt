@@ -1,0 +1,1 @@
+open("./Documents/inputSTR.txt", mode='r', encoding="Utf-8")
