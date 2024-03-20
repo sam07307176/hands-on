@@ -1,1 +1,3 @@
 open("./Documents/inputSTR.txt", mode='r', encoding="Utf-8")
+f = open("./Documents/inputSTR.txt", mode='r', encoding="Utf-8")
+print(f.read())
