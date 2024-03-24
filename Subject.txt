@@ -1,0 +1,64 @@
+def extractSubject(wordSTR, refLIST):
+    '''
+    extractSubject() checks if the wordSTR is a Subject with the refLIST as a conference.
+    input:
+        wordSTR => string
+        refLIST => list
+    output:
+        True => boolean (the wordSTR is a Subject)
+        False => boolean (the wordSTR is not a Subject)
+    '''
+    resultBOOL = False
+    for sentence in refLIST:
+        words = sentence.split(" ")
+        if words[0] == wordSTR:
+            resultBOOL = True
+            break
+    return resultBOOL
+
+def main(wordSTR, wordClass, refLIST):
+    '''
+    main() is the main function of this program
+    input:
+        wordSTR   =>string: the word to be tested
+        wordClass =>string: "Subject"
+        refLIST   =>list: corpus of reference sentences
+    output:
+        True => boolean(the WordSTR belongs to the wordClass)
+        False => boolean(the WordSTR doesn't belong to the wordClass)
+    '''
+    if wordClass == "":
+        return "Please specify a word class. e.g., Subject"
+    if refLIST == []:
+        return "Please provide sentences for word class calculation"
+    else:
+        pass
+    if wordClass == "Subject":                                
+        resultBOOL = extractSubject(wordSTR, refLIST) 
+        return resultBOOL    
+
+if __name__ == "__main__":
+    corpusLIST = ["私（わたし）がリンゴを食べます。",
+                  "彼（かれ）が本を読みます。",
+                  "私（わたし）が友達を見ます。",
+                  "彼女（かのじょ）が花を買います。",
+                  "私（わたし）が犬を飼います。"
+                  "田中さんが車を運転します。"
+                  "あなたが手紙を書きます。"
+                  "先生が生徒に教えます。"
+                  "子供がお菓子を食べます。"
+                  "あなたが問題を解決します。"
+                  "友達がプレゼントを持ってきます。"
+                  "彼が日本語を話します。"
+                  "先生が質問に答えます。"
+                  "私が夕食を作ります。"
+                  "彼女がピアノを弾きます。"
+                  "あなたが助けを求めます。"
+                  "子供が遊びます。" 
+                  "先生が新しい言葉を教えます。"
+                  "私がお茶を飲みます。"
+                  "彼がボールを投げます。"]
+    unknownWord = "私（わたし）,彼（かれ）,彼女（かのじょ）,田中さん, あなた, 先生, 子供, あなた, 友達 "
+    category = "Subject"
+    resultBOOL = main(wordSTR=unknownWord, wordClass=category, refLIST=corpusLIST)
+    print("Subject = '{}' ".format(unknownWord))
