@@ -1,0 +1,24 @@
+def parsing(textLIST):
+    count=0
+    while count < len(textLIST):
+        print ("Line" + str(count+1) + " = " + textLIST[count])
+       
+        #search subject
+        index1 = textLIST[count].find("が")
+        print ("Subject = " + textLIST[count][0:index1])
+    
+        #search object
+        index2 = textLIST[count].find("を")
+        print ("Object = " + textLIST[count][index1+1:index2])
+    
+        #search verb
+        index3 = textLIST[count].find("す")
+        print ("Verbs = " + textLIST[count][index2+1:index3])
+    
+        print ("===========================================")
+        count += 1
+    
+   
+with open('./Documents/inputSTR.txt') as f:
+    lines = f.read().splitlines()
+parsing (lines)
